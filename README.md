@@ -1,1 +1,1 @@
-# my-new-project
+# The repository of the team effort.
