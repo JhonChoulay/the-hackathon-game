@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://b4d4aqu2156xr"]
+
+[ext_resource type="Texture2D" uid="uid://b4ppc0r3bcqnx" path="res://Enemy Movement Placeholder/15637-removebg-preview.png" id="1_qbt3p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m1atj"]
+atlas = ExtResource("1_qbt3p")
+region = Rect2(150, 0, 75, 169)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7nusw"]
+atlas = ExtResource("1_qbt3p")
+region = Rect2(225, 0, 75, 169)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yhseh"]
+atlas = ExtResource("1_qbt3p")
+region = Rect2(16, 0, 85, 169)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jqe7v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m1atj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7nusw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yhseh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uncuo"]
+size = Vector2(62.75, 77.48)
+
+[node name="Enemy" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_jqe7v")
+frame = 2
+frame_progress = 0.16849
+
+[node name="Hitbox" type="ShapeCast2D" parent="."]
+position = Vector2(-1.615, -15.76)
+shape = SubResource("RectangleShape2D_uncuo")
