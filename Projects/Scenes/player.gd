@@ -4,7 +4,7 @@ class speed_class:
 	var y = 0
 	@export var loss = 5
 	@export var gain = 5
-	@export var max = 100
+	@export var maximum = 100
 
 var speed = speed_class.new()
 # Called when the node enters the scene tree for the first time.
@@ -50,4 +50,3 @@ func velocity_calc(direction, speed):
 				speed.y -= speed.loss #Start losing speed
 			else:
 				speed.y = 0				## End of y axis management
-			speed.y -= speed.loss 			## End of Y axis management
