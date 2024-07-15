@@ -13,7 +13,7 @@ size = Vector2(1280, 1)
 [node name="BackGround" type="Sprite2D" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("1_wn28b")]
-position = Vector2(600, 300)
+position = Vector2(69, 72)
 
 [node name="WorldBorder" type="Node2D" parent="."]
 
