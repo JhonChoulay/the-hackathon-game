@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7ugpdrdupcg8"]
+
+[ext_resource type="Texture2D" uid="uid://dcqk4dxdsb5kt" path="res://Sprites/MainMenu/Main-menu.png" id="1_isukm"]
+
+[sub_resource type="Theme" id="Theme_rqgar"]
+
+[node name="MainMenu" type="Node2D"]
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_isukm")
+
+[node name="Buttons" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 25.0
+offset_top = -35.0
+offset_right = 64.0
+offset_bottom = -5.0
+
+[node name="Panel" type="Panel" parent="Buttons"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 2.0
+offset_right = 38.0
+offset_bottom = 9.0
+theme = SubResource("Theme_rqgar")
