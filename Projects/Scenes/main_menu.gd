@@ -9,5 +9,3 @@ func _ready():
 	scale.y = float(resolution.size[1]) / float(sprite[1])
 	position = Vector2(resolution.size[0] / 2, resolution.size[1] / 2)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
