@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://pi60jckckj3v"]
+
+[ext_resource type="Script" path="res://Scenes/options_menu.gd" id="1_4rbag"]
+
+[node name="OptionsMenu" type="Node2D"]
+script = ExtResource("1_4rbag")
+
+[node name="ResolutionList" type="OptionButton" parent="."]
+offset_left = 900.0
+offset_top = 400.0
+offset_right = 1159.0
+offset_bottom = 441.0
+item_count = 2
+popup/item_0/text = "1920x1080"
+popup/item_0/id = 0
+popup/item_1/text = "1280x720"
+popup/item_1/id = 1
+
+[connection signal="item_selected" from="ResolutionList" to="." method="_on_resolution_list_item_selected"]
