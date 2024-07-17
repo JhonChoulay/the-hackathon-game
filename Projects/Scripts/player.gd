@@ -9,8 +9,8 @@ class speed_class:
 var speed = speed_class.new()
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var resolution = get_viewport().get_visible_rect()
-	position = Vector2(resolution.size[0]/2, resolution.size[1]/2)	# Place the player in the middle of the screen.
+	var resolution = [Resources.resolution[0], Resources.resolution[1]]
+	position = Vector2(resolution[0]/2, resolution[1]/2)	# Place the player in the middle of the screen.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
