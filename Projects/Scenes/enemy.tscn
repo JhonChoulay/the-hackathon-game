@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://b4d4aqu2156xr"]
 
-[ext_resource type="Texture2D" uid="uid://b4ppc0r3bcqnx" path="res://Enemy Movement Placeholder/15637-removebg-preview.png" id="1_qbt3p"]
+[ext_resource type="Texture2D" uid="uid://b4wrmuswauod6" path="res://Enemy_Movement_Placeholder/15637-removebg-preview.png" id="1_qbt3p"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m1atj"]
 atlas = ExtResource("1_qbt3p")
