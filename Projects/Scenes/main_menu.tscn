@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c7ugpdrdupcg8"]
+[gd_scene load_steps=13 format=3 uid="uid://c7ugpdrdupcg8"]
 
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_4x4pw"]
 [ext_resource type="Script" path="res://Scripts/buttons.gd" id="2_3linl"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://djr8nxqxpdldx" path="res://Sprites/Buttons/New-Game-clicked.png" id="7_bfedl"]
 [ext_resource type="Texture2D" uid="uid://bk1xc6m6p6188" path="res://Sprites/Buttons/Options.png" id="8_gdgpt"]
 [ext_resource type="Texture2D" uid="uid://cy41rh611xi5r" path="res://Sprites/Buttons/Options-clicked.png" id="9_qeikl"]
+[ext_resource type="PackedScene" uid="uid://pi60jckckj3v" path="res://Scenes/options_menu.tscn" id="10_5tbyb"]
 [ext_resource type="Texture2D" uid="uid://bfiarmvbs3xc2" path="res://Sprites/Buttons/Exit.png" id="10_16p40"]
 [ext_resource type="Texture2D" uid="uid://v7dab7epktm0" path="res://Sprites/Buttons/Exit-clicked.png" id="11_y2gj2"]
 
@@ -68,6 +69,8 @@ texture_normal = ExtResource("8_gdgpt")
 texture_pressed = ExtResource("9_qeikl")
 stretch_mode = 0
 metadata/_edit_use_anchors_ = true
+
+[node name="OptionsMenu" parent="Buttons/Options" instance=ExtResource("10_5tbyb")]
 
 [node name="Exit" type="TextureButton" parent="Buttons"]
 texture_filter = 1
