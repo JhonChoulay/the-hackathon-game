@@ -2,16 +2,16 @@
 
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_4x4pw"]
 [ext_resource type="Script" path="res://Scripts/buttons.gd" id="2_3linl"]
-[ext_resource type="Texture2D" uid="uid://hl8uidqijyoj" path="res://Sprites/Backrounds/Main-menu.png" id="2_skdbk"]
-[ext_resource type="Texture2D" uid="uid://c83k2yvtmeycx" path="res://Sprites/Buttons/Continue.png" id="4_4r3q3"]
-[ext_resource type="Texture2D" uid="uid://biko4e8itxcx2" path="res://Sprites/Buttons/Continue-clicked.png" id="5_f47oa"]
-[ext_resource type="Texture2D" uid="uid://cwxaa22vv4vju" path="res://Sprites/Buttons/New-game.png" id="6_a0q0m"]
-[ext_resource type="Texture2D" uid="uid://djr8nxqxpdldx" path="res://Sprites/Buttons/New-Game-clicked.png" id="7_bfedl"]
-[ext_resource type="Texture2D" uid="uid://bk1xc6m6p6188" path="res://Sprites/Buttons/Options.png" id="8_gdgpt"]
-[ext_resource type="Texture2D" uid="uid://cy41rh611xi5r" path="res://Sprites/Buttons/Options-clicked.png" id="9_qeikl"]
+[ext_resource type="Texture2D" uid="uid://dkhe4mu7o4s4i" path="res://Sprites/Backrounds/Main-menu.png" id="2_skdbk"]
+[ext_resource type="Texture2D" uid="uid://bb8hfps6tjjjl" path="res://Sprites/Buttons/Continue.png" id="4_4r3q3"]
+[ext_resource type="Texture2D" uid="uid://cf577ci3uaayt" path="res://Sprites/Buttons/Continue-clicked.png" id="5_f47oa"]
+[ext_resource type="Texture2D" uid="uid://bxvdeopcy0oxk" path="res://Sprites/Buttons/New-game.png" id="6_a0q0m"]
+[ext_resource type="Texture2D" uid="uid://bhiaprhejq1ub" path="res://Sprites/Buttons/New-Game-clicked.png" id="7_bfedl"]
+[ext_resource type="Texture2D" uid="uid://bv6w7o05w4isv" path="res://Sprites/Buttons/Options.png" id="8_gdgpt"]
+[ext_resource type="Texture2D" uid="uid://cqgfdif3xn1jf" path="res://Sprites/Buttons/Options-clicked.png" id="9_qeikl"]
 [ext_resource type="PackedScene" uid="uid://pi60jckckj3v" path="res://Scenes/options_menu.tscn" id="10_5tbyb"]
-[ext_resource type="Texture2D" uid="uid://bfiarmvbs3xc2" path="res://Sprites/Buttons/Exit.png" id="10_16p40"]
-[ext_resource type="Texture2D" uid="uid://v7dab7epktm0" path="res://Sprites/Buttons/Exit-clicked.png" id="11_y2gj2"]
+[ext_resource type="Texture2D" uid="uid://dtthb18pumk33" path="res://Sprites/Buttons/Exit.png" id="10_16p40"]
+[ext_resource type="Texture2D" uid="uid://dgmgatykdrbc1" path="res://Sprites/Buttons/Exit-clicked.png" id="11_y2gj2"]
 
 [node name="MainMenu" type="Node2D"]
 position = Vector2(-1058, -609)
@@ -70,7 +70,14 @@ texture_pressed = ExtResource("9_qeikl")
 stretch_mode = 0
 metadata/_edit_use_anchors_ = true
 
-[node name="OptionsMenu" parent="Buttons/Options" instance=ExtResource("10_5tbyb")]
+[node name="Menu" parent="Buttons/Options" instance=ExtResource("10_5tbyb")]
+layout_mode = 0
+anchors_preset = 0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="Exit" type="TextureButton" parent="Buttons"]
 texture_filter = 1

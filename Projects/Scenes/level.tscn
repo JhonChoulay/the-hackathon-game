@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_cdi1t"]
 [ext_resource type="PackedScene" uid="uid://rcrdbcnu6l5s" path="res://Scenes/player.tscn" id="1_wn28b"]
-[ext_resource type="Script" path="res://Scripts/worldBorder.gd" id="3_58md8"]
+[ext_resource type="Script" path="res://Scripts/world_border.gd" id="3_58md8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ouef3"]
 size = Vector2(1, 720)
