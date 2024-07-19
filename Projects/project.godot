@@ -26,6 +26,14 @@ window/size/viewport_height=720
 window/size/mode=3
 window/stretch/mode="viewport"
 
+[file_customization]
+
+folder_colors={
+"res://Scenes/": "green",
+"res://Scripts/": "orange",
+"res://Sprites/": "red"
+}
+
 [input]
 
 left={
