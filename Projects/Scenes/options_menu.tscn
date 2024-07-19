@@ -1,28 +1,85 @@
-[gd_scene load_steps=4 format=3 uid="uid://pi60jckckj3v"]
+[gd_scene load_steps=5 format=3 uid="uid://pi60jckckj3v"]
 
 [ext_resource type="Script" path="res://Scripts/options_menu.gd" id="1_sn4d8"]
-[ext_resource type="Texture2D" uid="uid://bb8hfps6tjjjl" path="res://Sprites/Buttons/Continue.png" id="2_bylnm"]
-[ext_resource type="Texture2D" uid="uid://cf577ci3uaayt" path="res://Sprites/Buttons/Continue-clicked.png" id="3_ok26w"]
+[ext_resource type="Texture2D" uid="uid://c2gjkmnirc1w3" path="res://Sprites/Buttons/Apply.png" id="2_jvq6g"]
+[ext_resource type="Texture2D" uid="uid://5f31sj2eguw5" path="res://Sprites/Backrounds/opt-screen2.png" id="2_rhxql"]
+[ext_resource type="Texture2D" uid="uid://dkbhbkyxnmds4" path="res://Sprites/Buttons/Apply-clicked.png" id="3_aed7o"]
 
-[node name="ResolutionMenu" type="HBoxContainer"]
-anchors_preset = 14
-anchor_top = 0.5
+[node name="OptionsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -35.0
-offset_bottom = 35.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_sn4d8")
 
-[node name="OptionsButton" type="OptionButton" parent="."]
-layout_mode = 2
-size_flags_horizontal = 3
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_rhxql")
 
-[node name="ApplyButton" type="TextureButton" parent="."]
-layout_mode = 2
-texture_normal = ExtResource("2_bylnm")
-texture_pressed = ExtResource("3_ok26w")
+[node name="BoxContainer" type="BoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.604
+anchor_top = 0.488
+anchor_right = 0.828
+anchor_bottom = 0.56
+offset_left = 1.87994
+offset_top = -0.360016
+offset_right = 1.15991
+offset_bottom = -0.200012
+grow_horizontal = 2
+grow_vertical = 2
+vertical = true
 
-[connection signal="item_selected" from="OptionsButton" to="." method="_on_option_button_item_selected"]
-[connection signal="pressed" from="ApplyButton" to="." method="_on_apply_button_pressed"]
+[node name="WindowOptions" type="OptionButton" parent="BoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="BoxContainer2" type="BoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.605
+anchor_top = 0.742
+anchor_right = 0.826
+anchor_bottom = 0.809
+offset_left = -1.40002
+offset_top = -2.24005
+offset_right = 1.72009
+offset_bottom = 1.52002
+grow_horizontal = 2
+grow_vertical = 2
+vertical = true
+
+[node name="ResolutionOptions" type="OptionButton" parent="BoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="BoxContainer3" type="BoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.24
+anchor_top = 0.758
+anchor_right = 0.431
+anchor_bottom = 0.847
+offset_left = 0.504974
+offset_top = 0.23999
+offset_right = 0.0250854
+offset_bottom = 0.159973
+vertical = true
+
+[node name="ApplyButton" type="TextureButton" parent="BoxContainer3"]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("2_jvq6g")
+texture_pressed = ExtResource("3_aed7o")
+stretch_mode = 0
+
+[connection signal="item_selected" from="BoxContainer2/ResolutionOptions" to="." method="_on_option_button_item_selected"]
+[connection signal="pressed" from="BoxContainer3/ApplyButton" to="." method="_on_apply_button_pressed"]

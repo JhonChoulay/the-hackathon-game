@@ -60,7 +60,6 @@ metadata/_edit_use_anchors_ = true
 [node name="OptionsMenu" parent="Buttons" instance=ExtResource("10_5tbyb")]
 layout_mode = 0
 anchors_preset = 0
-anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 offset_left = -237.69

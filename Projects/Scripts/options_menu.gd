@@ -1,4 +1,4 @@
-extends HBoxContainer
+extends Control
 
 var resolutions : Dictionary = {
 	"1920x1080":Vector2(1920,1080),
@@ -9,18 +9,19 @@ var resolutions : Dictionary = {
 
 var config = ConfigFile.new()
 var res 
+@onready var res_button = get_node("BoxContainer2/ResolutionOptions")
 
 func _ready():
 	var index = 0
 	for i in resolutions:
-		get_child(0).add_item(i,index)
+		res_button.add_item(i,index)
 		if Vector2i(resolutions[i]) == get_viewport().content_scale_size:
-			$OptionsButton.select(index)
+			res_button.select(index)
 		index +=1
 	res = get_viewport().content_scale_size
 
 func _on_option_button_item_selected(index):
-	res = resolutions.get(get_child(0).get_item_text(index))
+	res = resolutions.get(res_button.get_item_text(index))
 
 
 func _on_apply_button_pressed():
