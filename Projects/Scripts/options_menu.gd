@@ -8,20 +8,26 @@ var resolutions : Dictionary = {
 	"800x600":Vector2(800,600)}
 
 var config = ConfigFile.new()
+var res 
 
 func _ready():
 	var index = 0
 	for i in resolutions:
 		get_child(0).add_item(i,index)
 		if Vector2i(resolutions[i]) == get_viewport().content_scale_size:
-			$OptionButton.select(index)
+			$OptionsButton.select(index)
 		index +=1
+	res = get_viewport().content_scale_size
 
 func _on_option_button_item_selected(index):
-	var res = resolutions.get(get_child(0).get_item_text(index))
-	print(res)
+	res = resolutions.get(get_child(0).get_item_text(index))
+
+
+func _on_apply_button_pressed():
 	get_viewport().content_scale_size = res
+	Resources.resolution[0] = res.x
+	Resources.resolution[1] = res.y
 	config.load("res://Config/config.ini")
-	config.set_value("Settings","screen_width",res.x)
-	config.set_value("Settings","screen_height",res.y)
+	config.set_value("Settings","screen_width",int(res.x))
+	config.set_value("Settings","screen_height",int(res.y))
 	config.save("res://Config/config.ini")

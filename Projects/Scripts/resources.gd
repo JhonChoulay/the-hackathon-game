@@ -12,4 +12,5 @@ func _ready():
 	resolution  = [config.get_value("Settings","screen_width"), config.get_value("Settings","screen_height")]
 	windowed = config.get_value("Settings","windowed")
 	borderless = config.get_value("Settings", "borderless")
+	get_viewport().content_scale_size = Vector2(resolution[0],resolution[1])
 	exclusive_fullscreen = config.get_value("Settings", "exclusive_fullscreen")

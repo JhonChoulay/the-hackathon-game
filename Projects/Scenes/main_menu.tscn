@@ -57,6 +57,20 @@ texture_pressed = ExtResource("7_bfedl")
 stretch_mode = 0
 metadata/_edit_use_anchors_ = true
 
+[node name="OptionsMenu" parent="Buttons" instance=ExtResource("10_5tbyb")]
+layout_mode = 0
+anchors_preset = 0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -237.69
+offset_top = 235.0
+offset_right = 61.31
+offset_bottom = 305.0
+grow_horizontal = 1
+grow_vertical = 1
+metadata/_edit_use_anchors_ = true
+
 [node name="Options" type="TextureButton" parent="Buttons"]
 texture_filter = 1
 layout_mode = 0
@@ -69,15 +83,6 @@ texture_normal = ExtResource("8_gdgpt")
 texture_pressed = ExtResource("9_qeikl")
 stretch_mode = 0
 metadata/_edit_use_anchors_ = true
-
-[node name="Menu" parent="Buttons/Options" instance=ExtResource("10_5tbyb")]
-layout_mode = 0
-anchors_preset = 0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-grow_horizontal = 1
-grow_vertical = 1
 
 [node name="Exit" type="TextureButton" parent="Buttons"]
 texture_filter = 1
