@@ -9,7 +9,7 @@ var resolutions : Dictionary = {
 
 var config = ConfigFile.new()
 var res 
-@onready var res_button = get_node("BoxContainer2/ResolutionOptions")
+@onready var res_button = get_node("ResolutionOptions")
 
 func _ready():
 	var index = 0
