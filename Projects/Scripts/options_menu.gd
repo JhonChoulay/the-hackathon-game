@@ -9,6 +9,7 @@ var resolutions : Dictionary = {
 
 var config = ConfigFile.new()
 var res 
+@onready var timer = $Timer
 @onready var res_button = get_node("ResolutionOptions")
 
 func _ready():
@@ -23,12 +24,14 @@ func _ready():
 func _on_option_button_item_selected(index):
 	res = resolutions.get(res_button.get_item_text(index))
 
+func _process(_delta):
+	if timer.timeout:
+		config.load("res://Config/config.ini")
+		config.set_value("Settings","screen_width",int(res.x))
+		config.set_value("Settings","screen_height",int(res.y))
+		config.save("res://Config/config.ini")
 
 func _on_apply_button_pressed():
 	get_viewport().content_scale_size = res
-	Resources.resolution[0] = res.x
-	Resources.resolution[1] = res.y
-	config.load("res://Config/config.ini")
-	config.set_value("Settings","screen_width",int(res.x))
-	config.set_value("Settings","screen_height",int(res.y))
-	config.save("res://Config/config.ini")
+	timer.start()
+	Resources.resolution = res

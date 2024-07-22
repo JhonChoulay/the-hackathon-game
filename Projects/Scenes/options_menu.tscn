@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://pi60jckckj3v"]
 
 [ext_resource type="Script" path="res://Scripts/options_menu.gd" id="1_sn4d8"]
-[ext_resource type="Texture2D" uid="uid://c2gjkmnirc1w3" path="res://Sprites/Buttons/Apply.png" id="2_jvq6g"]
-[ext_resource type="Texture2D" uid="uid://5f31sj2eguw5" path="res://Sprites/Backrounds/opt-screen2.png" id="2_rhxql"]
-[ext_resource type="Texture2D" uid="uid://dkbhbkyxnmds4" path="res://Sprites/Buttons/Apply-clicked.png" id="3_aed7o"]
+[ext_resource type="Texture2D" uid="uid://sdt03xs17ide" path="res://Sprites/Buttons/Apply.png" id="2_jvq6g"]
+[ext_resource type="Texture2D" uid="uid://byp5i0iyfm7wr" path="res://Sprites/Backrounds/opt-screen2.png" id="2_rhxql"]
+[ext_resource type="Texture2D" uid="uid://dw3vru8t1y8xy" path="res://Sprites/Buttons/Apply-clicked.png" id="3_aed7o"]
 
 [node name="OptionsMenu" type="Control"]
 layout_mode = 3
@@ -60,6 +60,48 @@ texture_normal = ExtResource("2_jvq6g")
 texture_pressed = ExtResource("3_aed7o")
 ignore_texture_size = true
 stretch_mode = 0
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.9
+anchor_bottom = 0.9
+offset_left = 0.319977
+offset_top = 0.400002
+offset_right = -0.560059
+offset_bottom = -0.200012
+
+[node name="RevertButton" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.607
+anchor_top = 0.632
+anchor_right = 0.802
+anchor_bottom = 0.725
+offset_left = -0.137878
+offset_top = -0.0688477
+offset_right = 0.513794
+offset_bottom = -0.36499
+text = "Revert"
+
+[node name="ConfirmButton" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.191
+anchor_top = 0.632
+anchor_right = 0.387
+anchor_bottom = 0.725
+offset_left = 0.472076
+offset_top = -0.0688477
+offset_right = -0.411438
+offset_bottom = -0.36499
+text = "Confirm"
 
 [connection signal="item_selected" from="ResolutionOptions" to="." method="_on_option_button_item_selected"]
 [connection signal="pressed" from="ApplyButton" to="." method="_on_apply_button_pressed"]
