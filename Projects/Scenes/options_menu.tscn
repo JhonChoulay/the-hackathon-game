@@ -1,19 +1,65 @@
-[gd_scene load_steps=2 format=3 uid="uid://pi60jckckj3v"]
+[gd_scene load_steps=5 format=3 uid="uid://pi60jckckj3v"]
 
-[ext_resource type="Script" path="res://Scenes/options_menu.gd" id="1_4rbag"]
+[ext_resource type="Script" path="res://Scripts/options_menu.gd" id="1_sn4d8"]
+[ext_resource type="Texture2D" uid="uid://c2gjkmnirc1w3" path="res://Sprites/Buttons/Apply.png" id="2_jvq6g"]
+[ext_resource type="Texture2D" uid="uid://5f31sj2eguw5" path="res://Sprites/Backrounds/opt-screen2.png" id="2_rhxql"]
+[ext_resource type="Texture2D" uid="uid://dkbhbkyxnmds4" path="res://Sprites/Buttons/Apply-clicked.png" id="3_aed7o"]
 
-[node name="OptionsMenu" type="Node2D"]
-script = ExtResource("1_4rbag")
+[node name="OptionsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sn4d8")
 
-[node name="ResolutionList" type="OptionButton" parent="."]
-offset_left = 900.0
-offset_top = 400.0
-offset_right = 1159.0
-offset_bottom = 441.0
-item_count = 2
-popup/item_0/text = "1920x1080"
-popup/item_0/id = 0
-popup/item_1/text = "1280x720"
-popup/item_1/id = 1
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_rhxql")
+expand_mode = 1
 
-[connection signal="item_selected" from="ResolutionList" to="." method="_on_resolution_list_item_selected"]
+[node name="WindowOptions" type="OptionButton" parent="."]
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.601
+anchor_top = 0.481
+anchor_right = 0.83
+anchor_bottom = 0.561
+size_flags_vertical = 3
+
+[node name="ResolutionOptions" type="OptionButton" parent="."]
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.604
+anchor_top = 0.74
+anchor_right = 0.828
+anchor_bottom = 0.81
+size_flags_vertical = 3
+
+[node name="ApplyButton" type="TextureButton" parent="."]
+layout_mode = 2
+anchor_left = 0.24
+anchor_top = 0.758
+anchor_right = 0.431
+anchor_bottom = 0.847
+offset_left = 0.504944
+offset_top = 0.23999
+offset_right = -0.215088
+offset_bottom = 0.119934
+size_flags_vertical = 3
+texture_normal = ExtResource("2_jvq6g")
+texture_pressed = ExtResource("3_aed7o")
+ignore_texture_size = true
+stretch_mode = 0
+
+[connection signal="item_selected" from="ResolutionOptions" to="." method="_on_option_button_item_selected"]
+[connection signal="pressed" from="ApplyButton" to="." method="_on_apply_button_pressed"]
