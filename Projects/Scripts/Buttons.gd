@@ -11,8 +11,7 @@ func _on_continue_pressed():
 	print("NG Pressed")
 
 func _on_options_pressed():
-	for node in $Options.get_child(0).get_children():
-		node.show()
+	get_node("Options/OptionsMenu").show()
 
 func _on_exit_pressed():
 	get_tree().quit();

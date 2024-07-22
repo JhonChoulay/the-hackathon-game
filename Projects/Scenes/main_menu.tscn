@@ -2,15 +2,15 @@
 
 [ext_resource type="Script" path="res://Scripts/buttons.gd" id="2_3linl"]
 [ext_resource type="PackedScene" uid="uid://pi60jckckj3v" path="res://Scenes/options_menu.tscn" id="2_q6hi4"]
-[ext_resource type="Texture2D" uid="uid://dkhe4mu7o4s4i" path="res://Sprites/Backrounds/Main-menu.png" id="2_skdbk"]
-[ext_resource type="Texture2D" uid="uid://bb8hfps6tjjjl" path="res://Sprites/Buttons/Continue.png" id="4_4r3q3"]
-[ext_resource type="Texture2D" uid="uid://cf577ci3uaayt" path="res://Sprites/Buttons/Continue-clicked.png" id="5_f47oa"]
-[ext_resource type="Texture2D" uid="uid://bxvdeopcy0oxk" path="res://Sprites/Buttons/New-game.png" id="6_a0q0m"]
-[ext_resource type="Texture2D" uid="uid://bhiaprhejq1ub" path="res://Sprites/Buttons/New-Game-clicked.png" id="7_bfedl"]
-[ext_resource type="Texture2D" uid="uid://bv6w7o05w4isv" path="res://Sprites/Buttons/Options.png" id="8_gdgpt"]
-[ext_resource type="Texture2D" uid="uid://cqgfdif3xn1jf" path="res://Sprites/Buttons/Options-clicked.png" id="9_qeikl"]
-[ext_resource type="Texture2D" uid="uid://dtthb18pumk33" path="res://Sprites/Buttons/Exit.png" id="10_16p40"]
-[ext_resource type="Texture2D" uid="uid://dgmgatykdrbc1" path="res://Sprites/Buttons/Exit-clicked.png" id="11_y2gj2"]
+[ext_resource type="Texture2D" uid="uid://hl8uidqijyoj" path="res://Sprites/Backrounds/Main-menu.png" id="2_skdbk"]
+[ext_resource type="Texture2D" uid="uid://c83k2yvtmeycx" path="res://Sprites/Buttons/Continue.png" id="4_4r3q3"]
+[ext_resource type="Texture2D" uid="uid://biko4e8itxcx2" path="res://Sprites/Buttons/Continue-clicked.png" id="5_f47oa"]
+[ext_resource type="Texture2D" uid="uid://cwxaa22vv4vju" path="res://Sprites/Buttons/New-game.png" id="6_a0q0m"]
+[ext_resource type="Texture2D" uid="uid://djr8nxqxpdldx" path="res://Sprites/Buttons/New-Game-clicked.png" id="7_bfedl"]
+[ext_resource type="Texture2D" uid="uid://bk1xc6m6p6188" path="res://Sprites/Buttons/Options.png" id="8_gdgpt"]
+[ext_resource type="Texture2D" uid="uid://cy41rh611xi5r" path="res://Sprites/Buttons/Options-clicked.png" id="9_qeikl"]
+[ext_resource type="Texture2D" uid="uid://bfiarmvbs3xc2" path="res://Sprites/Buttons/Exit.png" id="10_16p40"]
+[ext_resource type="Texture2D" uid="uid://v7dab7epktm0" path="res://Sprites/Buttons/Exit-clicked.png" id="11_y2gj2"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -37,6 +37,7 @@ anchor_top = 0.037
 anchor_right = 1.0
 anchor_bottom = 0.437
 grow_horizontal = 0
+mouse_filter = 2
 script = ExtResource("2_3linl")
 metadata/_edit_use_anchors_ = true
 
@@ -94,6 +95,17 @@ ignore_texture_size = true
 stretch_mode = 0
 metadata/_edit_use_anchors_ = true
 
+[node name="OptionsMenu" parent="Buttons/Options" instance=ExtResource("2_q6hi4")]
+visible = false
+top_level = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.9
+anchor_bottom = 0.9
+offset_right = -0.00012207
+
 [node name="Exit" type="TextureButton" parent="Buttons"]
 texture_filter = 1
 layout_mode = 1
@@ -111,14 +123,6 @@ texture_pressed = ExtResource("11_y2gj2")
 ignore_texture_size = true
 stretch_mode = 0
 metadata/_edit_use_anchors_ = true
-
-[node name="OptionsMenu" parent="." instance=ExtResource("2_q6hi4")]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.1
-anchor_top = 0.1
-anchor_right = 0.9
-anchor_bottom = 0.9
 
 [connection signal="pressed" from="Buttons/NewGame" to="Buttons" method="_on_new_game_pressed"]
 [connection signal="pressed" from="Buttons/Continue" to="Buttons" method="_on_continue_pressed"]
