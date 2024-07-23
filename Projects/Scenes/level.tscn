@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_cdi1t"]
 [ext_resource type="PackedScene" uid="uid://rcrdbcnu6l5s" path="res://Scenes/player.tscn" id="1_wn28b"]
-[ext_resource type="Script" path="res://Scripts/worldBorder.gd" id="3_58md8"]
+[ext_resource type="Script" path="res://Scripts/world_border.gd" id="3_58md8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ouef3"]
 size = Vector2(1, 720)
@@ -36,3 +36,5 @@ shape = SubResource("RectangleShape2D_txgd0")
 [node name="Down" type="CollisionShape2D" parent="WorldBorder"]
 position = Vector2(640, 720)
 shape = SubResource("RectangleShape2D_txgd0")
+
+[connection signal="settings_changed" from="." to="WorldBorder" method="_on_level_settings_changed"]

@@ -6,12 +6,13 @@ class speed_class:
 	@export var gain = 5
 	@export var maximum = 400
 
+@export var project_res = Vector2(1920, 1080)
 var speed = speed_class.new()
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var resolution = [Resources.resolution[0], Resources.resolution[1]]
-	position = Vector2(resolution[0]/2, resolution[1]/2)	# Place the player in the middle of the screen.
-
+	var resolution = Resources.resolution
+	position = resolution/2	# Place the player in the middle of the screen.
+	scale = resolution / project_res
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	var direction = Input.get_vector("left","right","up","down")
@@ -23,8 +24,7 @@ func velocity_calc(direction_var):
 											## X axis speed and velocity management
 	if direction_var.x != 0: #If moving
 		speed.x += direction_var.x * speed.gain #Gain speed on the respective X axis direction_var (if negative direction_var = left)
-		speed.x = max(min(speed.x,speed.maximum), -speed.maximum) #inner min clamps the upper limit of speed.x/y, outer max clamps the lower limit
-		speed.y = max(min(speed.y,speed.maximum), -speed.maximum)
+		speed.x = clamp(speed.x,-speed.maximum,speed.maximum) #inner min clamps the upper limit of speed.x/y, outer max clamps the lower limit
 	else: #if left or right are not pressed
 		if speed.x < 0: #if the speed is going to the left
 			if is_on_wall():
@@ -40,8 +40,7 @@ func velocity_calc(direction_var):
 
 	if direction_var.y != 0: #If moving
 		speed.y += direction_var.y * speed.gain #Gain speed on the respective y axis direction_var (if negative direction_var = left)
-		speed.y = max(min(speed.y,speed.maximum), -speed.maximum) #inner min clamps the upper limit of speed.x/y, outer max clamps the lower limit
-		speed.y = max(min(speed.y,speed.maximum), -speed.maximum)
+		speed.y = clamp(speed.y,-speed.maximum,speed.maximum) #inner min clamps the upper limit of speed.x/y, outer max clamps the lower limit
 	else: #if left or right are not pressed
 		if speed.y < 0: #if the speed is going up
 			if is_on_ceiling():
