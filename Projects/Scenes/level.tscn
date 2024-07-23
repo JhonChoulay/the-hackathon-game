@@ -36,3 +36,5 @@ shape = SubResource("RectangleShape2D_txgd0")
 [node name="Down" type="CollisionShape2D" parent="WorldBorder"]
 position = Vector2(640, 720)
 shape = SubResource("RectangleShape2D_txgd0")
+
+[connection signal="settings_changed" from="." to="WorldBorder" method="_on_level_settings_changed"]
