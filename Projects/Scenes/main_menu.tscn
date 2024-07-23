@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c7ugpdrdupcg8"]
+[gd_scene load_steps=14 format=3 uid="uid://c7ugpdrdupcg8"]
 
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_3d8m2"]
 [ext_resource type="Script" path="res://Scripts/buttons.gd" id="2_3linl"]
@@ -13,7 +13,6 @@
 [ext_resource type="Texture2D" uid="uid://bfiarmvbs3xc2" path="res://Sprites/Buttons/Exit.png" id="10_16p40"]
 [ext_resource type="Texture2D" uid="uid://v7dab7epktm0" path="res://Sprites/Buttons/Exit-clicked.png" id="11_y2gj2"]
 [ext_resource type="AudioStream" uid="uid://egp6m8yap4d3" path="res://Sound/Music/Main-Menu.mp3" id="13_guobn"]
-[ext_resource type="Script" path="res://Scripts/audio_stream_player.gd" id="14_hlnj6"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -128,10 +127,10 @@ ignore_texture_size = true
 stretch_mode = 0
 metadata/_edit_use_anchors_ = true
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="MusicAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("13_guobn")
 autoplay = true
-script = ExtResource("14_hlnj6")
+bus = &"Music"
 
 [connection signal="pressed" from="Buttons/NewGame" to="Buttons" method="_on_new_game_pressed"]
 [connection signal="pressed" from="Buttons/Continue" to="Buttons" method="_on_continue_pressed"]

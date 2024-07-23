@@ -6,6 +6,8 @@ var window_mode : int
 @onready var timer = $ConfirmationPanel/Timer
 @onready var res_button = get_node("ResolutionOptions")
 @onready var window = get_window()
+var music_slider
+var audio_value
 
 func _ready():
 	#Set resolution
@@ -15,7 +17,9 @@ func _ready():
 		if Vector2i(Resources.resolutions[i]) == get_viewport().content_scale_size:
 			res_button.select(index)
 		index +=1
+	res = get_viewport().content_scale_size
 	#
+
 	##Set window mode
 	index = 0
 	for i in ["Windowed","Fullscreen","Exclusive"]:
@@ -29,7 +33,13 @@ func _ready():
 			window_mode = i
 			break
 	##
-	res = get_viewport().content_scale_size 
+
+	###Set audio
+	music_slider = $MusicSlider
+	music_slider.value_changed.connect(_on_music_slider_value_changed)
+	### 
+
+
 
 func _on_option_button_item_selected(index):
 	res = Resources.resolutions.get(res_button.get_item_text(index))
@@ -46,11 +56,19 @@ func _on_revert_button_pressed():
 	res_indexer()
 	res = Resources.resolution
 	#
+
 	##Window
 	window.set_mode(Resources.window_mode)
 	window_indexer()
 	window_mode = Resources.window_mode
 	##
+
+	###Audio
+	audio_value = Resources.audio_volume
+	print(Resources.audio_volume, " ", audio_value)
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), audio_value)
+	music_slider.value = audio_value
+	###
 	$ConfirmationPanel.visible = false
 
 func _on_timer_timeout():
@@ -59,11 +77,19 @@ func _on_timer_timeout():
 	res_indexer()
 	res = Resources.resolution
 	#
+
 	##Window Mode
 	window.set_mode(Resources.window_mode)
 	window_indexer()
 	window_mode = Resources.window_mode
 	##
+
+	###Audio
+	audio_value = Resources.audio_volume
+	print(Resources.audio_volume, " ", audio_value)
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), audio_value)
+	music_slider.value = audio_value
+	###
 	$ConfirmationPanel.visible = false
 
 func _on_confirm_button_pressed():
@@ -71,10 +97,18 @@ func _on_confirm_button_pressed():
 	Resources.resolution = res
 	config_resolution(Resources.resolution)
 	#
+
 	##Window
 	Resources.window_mode = window_mode
 	config_window(window_mode)
 	##
+
+	###Audio
+	Resources.audio_volume = audio_value
+	config.load("res://Config/config.ini")
+	config.set_value("Settings","audio_volume",audio_value)
+	config.save("res://Config/config.ini")
+	###
 	$ConfirmationPanel.visible = false
 
 func _on_window_options_item_selected(index):
@@ -82,6 +116,17 @@ func _on_window_options_item_selected(index):
 		window_mode = index + 2
 	else:
 		window_mode = index
+
+func _on_music_slider_value_changed(value):
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), value)
+	audio_value = value
+
+func _on_x_button_pressed():
+	res_indexer()
+	window_indexer()
+	music_slider.value = Resources.audio_volume
+	self.visible = false
+
 
 
 ### Custom Functions ###
@@ -111,5 +156,3 @@ func res_indexer():
 			break
 		index +=1
 
-func _on_x_button_pressed():
-	self.visible = false
