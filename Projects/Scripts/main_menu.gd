@@ -3,6 +3,8 @@ extends Control
 @onready var res_options = $Buttons/Options/OptionsMenu/ResolutionOptions
 @onready var window_options = $Buttons/Options/OptionsMenu/WindowOptions
 
+
+
 func _input(_event):
 	if Input.is_action_just_pressed("F11") or (Input.is_action_pressed("Alt") and Input.is_action_pressed("Enter")):
 		get_window().content_scale_size = DisplayServer.screen_get_size()

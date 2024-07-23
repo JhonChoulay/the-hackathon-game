@@ -1,6 +1,5 @@
 extends Control
 
-
 var config = ConfigFile.new()
 var res
 var window_mode : int
@@ -31,8 +30,6 @@ func _ready():
 			break
 	##
 	res = get_viewport().content_scale_size 
-	#windowed = 0, minimized = 1, maximized = 2 fullscreen = 3, exclusive = 4
-
 
 func _on_option_button_item_selected(index):
 	res = Resources.resolutions.get(res_button.get_item_text(index))
@@ -86,6 +83,7 @@ func _on_window_options_item_selected(index):
 	else:
 		window_mode = index
 
+
 ### Custom Functions ###
 func config_window(window_type : int):
 	config.load("res://Config/config.ini")
@@ -112,8 +110,6 @@ func res_indexer():
 			res_button.select(index)
 			break
 		index +=1
-
-
 
 func _on_x_button_pressed():
 	self.visible = false
