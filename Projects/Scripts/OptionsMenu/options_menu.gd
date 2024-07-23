@@ -1,12 +1,5 @@
 extends Control
 
-var resolutions : Dictionary = {
-	"1920x1080":Vector2(1920,1080),
-	"1600x900":Vector2(1600,900),
-	"1280x720":Vector2(1280,720),
-	"1024x600":Vector2(1024,600),
-	"800x600":Vector2(800,600)}
-
 
 var config = ConfigFile.new()
 var res
@@ -18,15 +11,15 @@ var window_mode : int
 func _ready():
 	#Set resolution
 	var index = 0
-	for i in resolutions:
+	for i in Resources.resolutions:
 		res_button.add_item(i,index)
-		if Vector2i(resolutions[i]) == get_viewport().content_scale_size:
+		if Vector2i(Resources.resolutions[i]) == get_viewport().content_scale_size:
 			res_button.select(index)
 		index +=1
 	#
 	##Set window mode
 	index = 0
-	for i in ["Windowed","Fullscreen","Exclusive Fullscreen"]:
+	for i in ["Windowed","Fullscreen","Exclusive"]:
 		$WindowOptions.add_item(i,index)
 		if index + 2 == Resources.window_mode:
 			$WindowOptions.select(index)
@@ -35,12 +28,14 @@ func _ready():
 		if i == Resources.window_mode:
 			window.set_mode(i)
 			window_mode = i
+			break
 	##
 	res = get_viewport().content_scale_size 
 	#windowed = 0, minimized = 1, maximized = 2 fullscreen = 3, exclusive = 4
 
+
 func _on_option_button_item_selected(index):
-	res = resolutions.get(res_button.get_item_text(index))
+	res = Resources.resolutions.get(res_button.get_item_text(index))
 
 func _on_apply_button_pressed():
 	get_viewport().content_scale_size = res
@@ -112,8 +107,13 @@ func config_resolution(resolution_var:Vector2):
 
 func res_indexer():
 	var index = 0
-	for i in resolutions:
-		if Vector2i(resolutions[i]) == get_viewport().content_scale_size:
+	for i in Resources.resolutions:
+		if Vector2i(Resources.resolutions[i]) == get_viewport().content_scale_size:
 			res_button.select(index)
+			break
 		index +=1
 
+
+
+func _on_x_button_pressed():
+	self.visible = false
