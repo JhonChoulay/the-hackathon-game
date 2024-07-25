@@ -7,7 +7,11 @@ var window_mode : int
 @onready var res_button = get_node("ResolutionOptions")
 @onready var window = get_window()
 var music_slider
-var audio_value
+var master_slider
+var sfx_slider
+var music_volume = 0
+var master_volume = 0
+var sfx_volume = 0
 
 func _ready():
 	#Set resolution
@@ -36,7 +40,11 @@ func _ready():
 
 	###Set audio
 	music_slider = $MusicSlider
+	master_slider = $MasterSlider
+	sfx_slider = $SFXSlider
 	music_slider.value_changed.connect(_on_music_slider_value_changed)
+	master_slider.value_changed.connect(_on_master_slider_value_changed)
+	sfx_slider.value_changed.connect(_on_sfx_slider_value_changed)
 	### 
 
 
@@ -64,10 +72,9 @@ func _on_revert_button_pressed():
 	##
 
 	###Audio
-	audio_value = Resources.audio_volume
-	print(Resources.audio_volume, " ", audio_value)
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), audio_value)
-	music_slider.value = audio_value
+	music_volume = Resources.music_volume
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), music_volume)
+	music_slider.value = music_volume
 	###
 	$ConfirmationPanel.visible = false
 
@@ -85,30 +92,34 @@ func _on_timer_timeout():
 	##
 
 	###Audio
-	audio_value = Resources.audio_volume
-	print(Resources.audio_volume, " ", audio_value)
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), audio_value)
-	music_slider.value = audio_value
+	music_volume = Resources.music_volume
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), music_volume)
+	music_slider.value = music_volume
 	###
 	$ConfirmationPanel.visible = false
 
 func _on_confirm_button_pressed():
-	#Resolution
+	config.load("res://Config/config.ini")
+	
+	###Resolution
 	Resources.resolution = res
-	config_resolution(Resources.resolution)
-	#
-
+	config.set_value("Settings","screen_width",int(res.x))
+	config.set_value("Settings","screen_height",int(res.y))
+	###
 	##Window
 	Resources.window_mode = window_mode
-	config_window(window_mode)
+	config.set_value("Settings","window_mode",window_mode)
 	##
-
-	###Audio
-	Resources.audio_volume = audio_value
-	config.load("res://Config/config.ini")
-	config.set_value("Settings","audio_volume",audio_value)
+	#Audio
+	Resources.music_volume = music_volume
+	Resources.master_volume = master_volume
+	Resources.sfx_volume = sfx_volume
+	config.set_value("Settings","music_volume",music_volume)
+	config.set_value("Settings","master_volume",master_volume)
+	config.set_value("Settings","sfx_volume",sfx_volume)
+	#
+	
 	config.save("res://Config/config.ini")
-	###
 	$ConfirmationPanel.visible = false
 
 func _on_window_options_item_selected(index):
@@ -117,23 +128,30 @@ func _on_window_options_item_selected(index):
 	else:
 		window_mode = index
 
+###Audio
 func _on_music_slider_value_changed(value):
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), value)
-	audio_value = value
+	music_volume = value
+
+func _on_master_slider_value_changed(value):
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), value)
+	master_volume = value
+
+func _on_sfx_slider_value_changed(value):
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), value)
+	sfx_volume = value
+###
 
 func _on_x_button_pressed():
 	res_indexer()
 	window_indexer()
-	music_slider.value = Resources.audio_volume
+	music_slider.value = Resources.music_volume
+	master_slider.value = Resources.master_volume
+	sfx_slider.value = Resources.sfx_volume
 	self.visible = false
 
 
-
 ### Custom Functions ###
-func config_window(window_type : int):
-	config.load("res://Config/config.ini")
-	config.set_value("Settings","window_mode",window_type)
-	config.save("res://Config/config.ini")
 
 func window_indexer():
 	var index = 0
@@ -141,12 +159,6 @@ func window_indexer():
 		if i == Resources.window_mode:
 			$WindowOptions.select(index)
 		index +=1
-
-func config_resolution(resolution_var:Vector2):
-	config.load("res://Config/config.ini")
-	config.set_value("Settings","screen_width",int(resolution_var.x))
-	config.set_value("Settings","screen_height",int(resolution_var.y))
-	config.save("res://Config/config.ini")
 
 func res_indexer():
 	var index = 0
