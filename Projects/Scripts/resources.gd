@@ -9,12 +9,16 @@ var resolutions : Dictionary = {
 	"1280x720":Vector2(1280,720),
 	"1024x600":Vector2(1024,600),
 	"800x600":Vector2(800,600)}
-var audio_volume
+var music_volume
+var master_volume
+var sfx_volume
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	config.load("res://Config/config.ini")
 	resolution  = Vector2(config.get_value("Settings","screen_width"), config.get_value("Settings","screen_height"))
 	window_mode = config.get_value("Settings","window_mode")
-	audio_volume = config.get_value("Settings","audio_volume")
+	music_volume = config.get_value("Settings","music_volume")
+	master_volume = config.get_value("Settings","master_volume")
+	sfx_volume = config.get_value("Settings","sfx_volume")
 	get_viewport().content_scale_size = Vector2(resolution[0],resolution[1])
