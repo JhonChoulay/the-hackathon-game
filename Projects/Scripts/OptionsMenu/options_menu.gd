@@ -18,7 +18,6 @@ func _ready():
 	var index = 0
 	for i in Resources.resolutions:
 		res_button.add_item(i,index)
-		print(get_viewport().content_scale_size)
 		if Vector2i(Resources.resolutions[i]) == get_viewport().content_scale_size:
 			res_button.select(index)
 		index +=1
@@ -94,7 +93,6 @@ func _on_timer_timeout():
 
 	###Audio
 	music_volume = Resources.music_volume
-	print(Resources.music_volume, " ", music_volume)
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), music_volume)
 	music_slider.value = music_volume
 	###
@@ -117,7 +115,6 @@ func _on_confirm_button_pressed():
 	Resources.master_volume = master_volume
 	Resources.sfx_volume = sfx_volume
 	config.set_value("Settings","music_volume",music_volume)
-	print(music_volume)
 	config.set_value("Settings","master_volume",master_volume)
 	config.set_value("Settings","sfx_volume",sfx_volume)
 	#
@@ -149,6 +146,8 @@ func _on_x_button_pressed():
 	res_indexer()
 	window_indexer()
 	music_slider.value = Resources.music_volume
+	master_slider.value = Resources.master_volume
+	sfx_slider.value = Resources.sfx_volume
 	self.visible = false
 
 

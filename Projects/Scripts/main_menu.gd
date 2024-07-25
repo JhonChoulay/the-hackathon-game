@@ -2,9 +2,9 @@ extends Control
 
 @onready var res_options = $Buttons/Options/OptionsMenu/ResolutionOptions
 @onready var window_options = $Buttons/Options/OptionsMenu/WindowOptions
-var music_slider
-var audio_value
 
+func _ready():
+	AudioPlayer._play_menu_music()
 
 func _input(_event):
 	if Input.is_action_just_pressed("F11") or (Input.is_action_pressed("Alt") and Input.is_action_pressed("Enter")):
@@ -25,5 +25,4 @@ func _input(_event):
 		config.set_value("Settings","screen_height",Resources.resolution.y)
 		config.set_value("Settings","window_mode", 3)
 		config.save("res://Config/config.ini")
-
 # Called when the node enters the scene tree for the first time.
