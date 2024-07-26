@@ -8,9 +8,9 @@ func _ready():
 
 func _input(_event):
 	if Input.is_action_just_pressed("F11") or (Input.is_action_pressed("Alt") and Input.is_action_pressed("Enter")):
-		get_window().content_scale_size = DisplayServer.screen_get_size()
+		get_window().content_scale_size = DisplayServer.screen_get_size(DisplayServer.window_get_current_screen())
 		Resources.window_mode = 3
-		Resources.resolution = DisplayServer.screen_get_size()
+		Resources.resolution = DisplayServer.screen_get_size(DisplayServer.window_get_current_screen())
 		var index = 0
 		for i in Resources.resolutions:
 			if i == res_options.get_item_text(index):
