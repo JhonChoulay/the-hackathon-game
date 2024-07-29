@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_3d8m2"]
 [ext_resource type="Script" path="res://Scripts/buttons.gd" id="2_3linl"]
 [ext_resource type="PackedScene" uid="uid://pi60jckckj3v" path="res://Scenes/options_menu.tscn" id="2_q6hi4"]
+<<<<<<< Updated upstream
 [ext_resource type="Texture2D" uid="uid://hl8uidqijyoj" path="res://Sprites/Backrounds/Main-menu.png" id="2_skdbk"]
 [ext_resource type="Texture2D" uid="uid://c83k2yvtmeycx" path="res://Sprites/Buttons/Continue.png" id="4_4r3q3"]
 [ext_resource type="Texture2D" uid="uid://biko4e8itxcx2" path="res://Sprites/Buttons/Continue-clicked.png" id="5_f47oa"]
@@ -14,6 +15,17 @@
 [ext_resource type="Texture2D" uid="uid://v7dab7epktm0" path="res://Sprites/Buttons/Exit-clicked.png" id="11_y2gj2"]
 [ext_resource type="AudioStream" uid="uid://egp6m8yap4d3" path="res://Sound/Music/Main-Menu.mp3" id="13_guobn"]
 [ext_resource type="Script" path="res://Scripts/audio_stream_player.gd" id="14_hlnj6"]
+=======
+[ext_resource type="Texture2D" uid="uid://c7od40mmigsuf" path="res://Sprites/Backrounds/Main-menu.png" id="2_skdbk"]
+[ext_resource type="Texture2D" uid="uid://72urkuiua0ol" path="res://Sprites/Buttons/Continue.png" id="4_4r3q3"]
+[ext_resource type="Texture2D" uid="uid://bbe66coar3ccd" path="res://Sprites/Buttons/Continue-clicked.png" id="5_f47oa"]
+[ext_resource type="Texture2D" uid="uid://wydw8n8ksmex" path="res://Sprites/Buttons/New-game.png" id="6_a0q0m"]
+[ext_resource type="Texture2D" uid="uid://kau24bax2ewv" path="res://Sprites/Buttons/New-Game-clicked.png" id="7_bfedl"]
+[ext_resource type="Texture2D" uid="uid://cyg6oache8n3r" path="res://Sprites/Buttons/Options.png" id="8_gdgpt"]
+[ext_resource type="Texture2D" uid="uid://cdmfhiaghlh6p" path="res://Sprites/Buttons/Options-clicked.png" id="9_qeikl"]
+[ext_resource type="Texture2D" uid="uid://sultocgewc6r" path="res://Sprites/Buttons/Exit.png" id="10_16p40"]
+[ext_resource type="Texture2D" uid="uid://bcbejg0y38xt4" path="res://Sprites/Buttons/Exit-clicked.png" id="11_y2gj2"]
+>>>>>>> Stashed changes
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3

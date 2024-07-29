@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://wyf5owvuuyuk"
+path="res://.godot/imported/Woman death.mp3-22d7c117bc1cab28bb0a40eefbefef98.mp3str"
+
+[deps]
+
+source_file="res://Sound/SFX/Woman death.mp3"
+dest_files=["res://.godot/imported/Woman death.mp3-22d7c117bc1cab28bb0a40eefbefef98.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
